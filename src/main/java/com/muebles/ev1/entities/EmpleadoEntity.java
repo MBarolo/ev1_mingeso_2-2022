@@ -20,13 +20,16 @@ public class EmpleadoEntity {
     @Column(unique = true, nullable = false)
     private long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 12)
     private String rut;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String nombres;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
+    private String apellidos;
+
+    @Column(nullable = false, length = 1)
     private String categoria;
 
     @Column(nullable = false)

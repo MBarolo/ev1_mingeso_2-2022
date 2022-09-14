@@ -25,9 +25,9 @@ public class MarcaEntity {
     @Column(nullable = false)
     private Time time;
 
-    @ManyToOne
-    @JoinColumn(name = "rut", referencedColumnName = "rut")
-    private EmpleadoEntity rut;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "rut", referencedColumnName = "rut",nullable = false, unique = true)
+    private EmpleadoEntity empleado;
 
     @Column(nullable = false)
     private Boolean autorizacion = false;

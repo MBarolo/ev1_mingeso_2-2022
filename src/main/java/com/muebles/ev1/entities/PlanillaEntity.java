@@ -19,7 +19,7 @@ public class PlanillaEntity {
 
     @ManyToOne
     @JoinColumn(name = "rut", referencedColumnName = "rut")
-    private EmpleadoEntity rut;
+    private EmpleadoEntity empleado;
 
     @Column(nullable = false)
     private int sfm;
