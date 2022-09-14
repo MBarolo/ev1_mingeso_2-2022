@@ -17,7 +17,7 @@ create table marcas(
 	justificativo boolean,
 	autorizacion boolean,
 	primary key(id),
-	foreign key(rut_empleado) references empleado(rut)
+	foreign key(rut_empleado) references empleados(rut)
 );
 
 
@@ -32,5 +32,5 @@ create table planillas(
 	cot_prev int not null,
 	cot_sal int not null,
 	primary key(id),
-	foreign key(rut_empleado) references empleado(rut)
+	foreign key(rut_empleado) references empleados(rut)
 );

@@ -1,6 +1,6 @@
 package com.muebles.ev1.services;
 
-import com.muebles.ev1.entities.MarcaEntity;
+import com.muebles.ev1.entities.Marca;
 import com.muebles.ev1.repositories.MarcaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,17 +13,17 @@ import java.util.Optional;
 public class MarcaService {
     @Autowired
     MarcaRepository marcaRepository;
-    public Optional<MarcaEntity> getById(Long id){
+    public Optional<Marca> getById(Long id){
         return marcaRepository.findById(id);
     }
-    public Iterable<MarcaEntity> getAll(){
+    public Iterable<Marca> getAll(){
         return marcaRepository.findAll();
     }
-    public ArrayList<MarcaEntity> getAllByEmpleadoRut(String rut){
+    public ArrayList<Marca> getAllByEmpleadoRut(String rut){
         return marcaRepository.findAllByEmpleadoRut(rut);
     }
 
-    public MarcaEntity insert(MarcaEntity marca){
+    public Marca insert(Marca marca){
         return marcaRepository.save(marca);
     }
 }

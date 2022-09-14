@@ -1,6 +1,6 @@
 package com.muebles.ev1.controllers;
 
-import com.muebles.ev1.entities.MarcaEntity;
+import com.muebles.ev1.entities.Marca;
 import com.muebles.ev1.services.EmpleadoService;
 import com.muebles.ev1.services.MarcaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,11 @@ public class MarcaController {
     EmpleadoService empleadoService;
 
     @PostMapping("/marcas")
-    public MarcaEntity insertMarca(@RequestBody MarcaEntity m){
-        m.
+    public Marca insertMarca(@RequestBody Marca m){
         return marcaService.insert(m);
-        empleadoService.
     }
     @GetMapping("/marcas")
-    public Iterable<MarcaEntity> getMarcas(){
+    public Iterable<Marca> getMarcas(){
         return marcaService.getAll();
     }
 }
