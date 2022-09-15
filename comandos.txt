@@ -1,0 +1,9 @@
+Docker:
+docker run -d -p 3306:3306 --name mysql_local -e MYSQL_ROOT_PASSWORD=pass --mount src=db_data,dst=/var/lib/mysql mysql
+
+Terraform
+
+terraform init
+terraform validate
+terraform plan
+terraform apply
