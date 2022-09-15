@@ -16,13 +16,17 @@
       <a class= "btn btn-primary" href="/justification">Ingresar justificación</a>
       <a class= "btn btn-primary" href="/generate" role="button">Generar planilla de sueldos</a>
     </h1>
+    <br><br>
+    <br><br>
     <h3>Cargue el archivo DATA.TXT:</h3>
       <div class="container">
-      <form action="/">
-        <input type="file" class = "form-control" name ="archivo">
-        <h4>
+      <form action="/marcas/from_file" method="post" enctype="multipart/form-data">
+        <input type="FILE" name ="archivo">
+        <br>
+        <br>
+        <h5>
           <button type="submit">Cargar</button>
-        </h4>
+        </h5>
       </form>
       </div>
   </body>

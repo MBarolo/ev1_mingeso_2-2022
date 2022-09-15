@@ -6,9 +6,8 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class Planilla {
+public class Planillas {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
