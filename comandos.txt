@@ -1,3 +1,10 @@
+Enlaces:
+	localhost:8080 [Jenkins]
+	localhost:8081 [app (local)]
+	localhost:9000 [sonarqube]
+	localhost:3306 [MySQL (local)]
+
+
 Docker (Mysql local):
 docker run -d -p 3306:3306 --name mysql_local -e MYSQL_ROOT_PASSWORD=pass --mount src=db_data,dst=/var/lib/mysql mysql
 
