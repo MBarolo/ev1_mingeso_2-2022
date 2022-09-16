@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.Scanner;
 
 @Controller
@@ -35,6 +36,16 @@ public class MarcaController {
     @GetMapping("/marcas")
     public Iterable<Marcas> getMarcas(){
         return marcaService.getAll();
+    }
+
+    @PostMapping("/marcas/authorize")
+    public String authorizeMarca(@RequestParam("fecha") String date, @RequestParam ("rut") String rut){
+        if(rut.length() == 12) {
+            marcaService.authorizeMarca(LocalDate.parse(date), rut);
+            return "Horas extra autorizadas correctamente.";
+        }
+        else
+            return "Rut mal ingresado. Ingresar con el formato indicado.";
     }
 
     @RequestMapping(value="/marcas/from_file", headers = "Content-Type=multipart/form-data", method = RequestMethod.POST, consumes = {"application/x-www-form-urlencoded"})

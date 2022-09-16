@@ -24,4 +24,11 @@ public interface MarcaRepository extends CrudRepository<Marcas, Long> {
     public void insertMarca(@Param("fecha")LocalDate fecha, @Param("hora") LocalTime hora,
                             @Param("rut_empleado")String rut_empleado, @Param("justificativo")Boolean justificativo,
                             @Param("autorizacion") Boolean autorizacion);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE marcas " +
+            "SET autorizacion = 1 " +
+            "WHERE fecha = :date and rut_empleado = :rut", nativeQuery = true)
+    public void authorizeMarca(@Param("date") LocalDate date, @Param("rut") String rut);
 }
