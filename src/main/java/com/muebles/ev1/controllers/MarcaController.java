@@ -48,6 +48,16 @@ public class MarcaController {
             return "Rut mal ingresado. Ingresar con el formato indicado.";
     }
 
+    @PostMapping("/marcas/justify")
+    public String justifyMarca(@RequestParam("fecha") String date, @RequestParam ("rut") String rut){
+        if(rut.length() == 12) {
+            marcaService.justifyMarca(LocalDate.parse(date), rut);
+            return "Justificación ingresada correctamente.";
+        }
+        else
+            return "Rut mal ingresado. Ingresar con el formato indicado.";
+    }
+
     @RequestMapping(value="/marcas/from_file", headers = "Content-Type=multipart/form-data", method = RequestMethod.POST, consumes = {"application/x-www-form-urlencoded"})
     @ResponseBody
     public String insertMarcaFromFile(@RequestParam("archivo") MultipartFile file){

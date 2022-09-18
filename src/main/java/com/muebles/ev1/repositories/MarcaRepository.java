@@ -16,6 +16,12 @@ import java.util.ArrayList;
 public interface MarcaRepository extends CrudRepository<Marcas, Long> {
     @Query(value = "SELECT m FROM marcas as m WHERE m.rut = ?1", nativeQuery = true)
     public ArrayList<Marcas> findAllByEmpleadoRut(String rut);
+    @Query(value ="SELECT * FROM marcas as m WHERE MONTH(m.fecha) = :mes AND YEAR(m.fecha) = :anyo AND m.rut_empleado = :rut", nativeQuery = true)
+    public ArrayList<Marcas> getByMonthAndRut(@Param("mes")int mes, @Param("anyo") int anyo, @Param("rut") String rut);
+    @Query(value = "SELECT * FROM marcas as m WHERE DAY(m.fecha) = DAY(:fecha) AND " +
+            "MONTH(m.fecha) = MONTH(:fecha) AND YEAR(m.fecha) = YEAR(:fecha) AND m.rut_empleado = :rut " +
+            "ORDER BY m.hora",nativeQuery = true)
+    public ArrayList<Marcas> getByDayAndRut(@Param("fecha") LocalDate date, @Param("rut") String rut);
 
     @Modifying
     @Transactional
@@ -31,4 +37,11 @@ public interface MarcaRepository extends CrudRepository<Marcas, Long> {
             "SET autorizacion = 1 " +
             "WHERE fecha = :date and rut_empleado = :rut", nativeQuery = true)
     public void authorizeMarca(@Param("date") LocalDate date, @Param("rut") String rut);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE marcas " +
+            "SET justificativo = 1 " +
+            "WHERE fecha = :date and rut_empleado = :rut", nativeQuery = true)
+    public void justifyMarca(@Param("date") LocalDate date, @Param("rut") String rut);
 }

@@ -13,6 +13,9 @@ public class Empleados {
     @Column(name = "apellidos")
     private String apellidos;
 
+    @Column(name = "rut")
+    private String rut;
+
     @Column(name = "nombres")
     private String nombres;
 

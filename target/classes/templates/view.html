@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>MueblesSTGO</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<h1>Sistema MueblesSTGO: Visualización planilla de sueldo</h1>
+<div class="container-sm">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>Rut</th>
+      <th>Nombre</th>
+      <th>Categoría</th>
+      <th>Años servicio</th>
+      <th>S.F.M.</th>
+      <th>Bonificación años</th>
+      <th>Monto horas extra</th>
+      <th>Monto descuentos</th>
+      <th>Sueldo bruto</th>
+      <th>Cotización previsional</th>
+      <th>Cotización salud</th>
+      <th>Sueldo final</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="emp_plan, iter:${emp_plan}">
+      <td th:text="${emp_plan.getRut()}">Rut</td>
+      <td th:text="${emp_plan.getNombres() +' '+ emp_plan.getApellidos()}">Nombre</td>
+      <td th:text="${emp_plan.getCategoria()}">Categoría</td>
+      <td th:text="${date.getYear() - emp_plan.getFecha_ingreso().getYear()}">Años servicio</td>
+      <td th:text="${emp_plan.getSfm()}">Sueldo fijo mensual</td>
+      <td th:text="${emp_plan.getMonto_anyos()}">Bonificación años</td>
+      <td th:text="${emp_plan.getMonto_horas()}">Monto horas extra</td>
+      <td th:text="${emp_plan.getMonto_desc()}">Monto descuentos</td>
+      <td th:text="${emp_plan.getSfm() +
+        emp_plan.getMonto_anyos() +
+        emp_plan.getMonto_horas()}">
+        Sueldo bruto
+      </td>
+      <td th:text="${emp_plan.getCot_prev()}">Cotización previsional</td>
+      <td th:text="${emp_plan.getCot_sal()}">Cotización salud</td>
+      <td th:text="${emp_plan.getMonto_final()}">Sueldo final</td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

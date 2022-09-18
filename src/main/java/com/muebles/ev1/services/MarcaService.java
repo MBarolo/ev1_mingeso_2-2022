@@ -31,4 +31,15 @@ public class MarcaService {
     public void authorizeMarca(LocalDate date, String rut){
         marcaRepository.authorizeMarca(date, rut);
     }
+    public void justifyMarca(LocalDate date, String rut){
+        marcaRepository.justifyMarca(date, rut);
+    }
+
+    public ArrayList<Marcas> getByMonthAndRut(int mes, int anyo, String rut) {
+       return marcaRepository.getByMonthAndRut(mes, anyo, rut);
+    }
+
+    public ArrayList<Marcas> getByDayAndRut(LocalDate date, String rut) {
+        return marcaRepository.getByDayAndRut(date, rut);
+    }
 }

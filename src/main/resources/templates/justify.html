@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>MueblesSTGO</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <style>
+    h3 {text-align: center;}
+    p {text-align: center;}
+    div {text-align: center;}
+  </style>
+</head>
+<body>
+<h1>Sistema MueblesSTGO: Justificación inasistencia</h1>
+<h3>
+  <div class = "container">
+    <form action = "/marcas/justify" method="post">
+      Ingresar fecha de inasistencia:
+      <input type="date" name="fecha">
+      Ingresar rut del empleado (Formato: "xx.xxx.xxx-x"):
+      <input type String name = "rut" value="xx.xxx.xxx-x">
+      <button type="submit">Autorizar</button>
+    </form>
+  </div>
+</h3>
+</body>
+</html>
