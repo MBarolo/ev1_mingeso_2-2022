@@ -8,9 +8,26 @@ Enlaces:
 Docker (Mysql local):
 docker run -d -p 3306:3306 --name mysql_local -e MYSQL_ROOT_PASSWORD=pass --mount src=db_data,dst=/var/lib/mysql mysql
 
-Terraform (Provision de server AWS, instalacion automatica de Docker):
+Terraform (Provision de server AWS, instalacion automatica de Docker): EN APPLICATIONS PROPERTIES MODIFICAR EL URL DE DB
 
 terraform init
 terraform validate
 terraform plan
 terraform apply
+
+Luego de esto se debería enviar a la instancia EC2 los archivos necesarios (.sql docker compose, etc)
+utilizando putty (pscp) con los siguientes comandos:
+ 
+pscp -i C:\Users\Matix\OneDrive\Escritorio\Terraform\ev1_mingeso_key.ppk C:\Users\Matix\OneDrive\Escritorio\Mingeso\ev1_mingeso_2-2022\sql\create.sql ubuntu@ec2-35-86-94-91.us-west-2.compute.amazonaws.com:create.sql
+
+pscp -i C:\Users\Matix\OneDrive\Escritorio\Terraform\ev1_mingeso_key.ppk C:\Users\Matix\OneDrive\Escritorio\Mingeso\ev1_mingeso_2-2022\sql\load.sql ubuntu@ec2-35-86-94-91.us-west-2.compute.amazonaws.com:load.sql
+
+pscp -i C:\Users\Matix\OneDrive\Escritorio\Terraform\ev1_mingeso_key.ppk C:\Users\Matix\OneDrive\Escritorio\Terraform\docker-compose.yml ubuntu@ec2-35-86-94-91.us-west-2.compute.amazonaws.com:docker-compose.yml
+
+
+donde en 
+
+
+Para Jenkins: Tener abierta la base de datos en local y sonarqube
+
+
