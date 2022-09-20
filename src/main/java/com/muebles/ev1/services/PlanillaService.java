@@ -47,7 +47,7 @@ public class PlanillaService {
     }
 
     public ArrayList<Integer> getAtrasosAndInasist(int mes, int anyo, String rut){
-        ArrayList<Integer> atrasosInasist = new ArrayList<Integer>();
+        ArrayList<Integer> atrasosInasist = new ArrayList<>();
         atrasosInasist.add(0);
         atrasosInasist.add(0);
         atrasosInasist.add(0);
@@ -75,7 +75,6 @@ public class PlanillaService {
                 atrasosInasist.set(0, atrasosInasist.get(0) + 1);
             }
         }
-        System.out.println(atrasosInasist);
         return atrasosInasist;
     }
 
@@ -131,7 +130,7 @@ public class PlanillaService {
     public String generate(int mes, int anyo){
         ArrayList<String> ruts = empleadoService.getRuts();
         LocalDate date = LocalDate.of(anyo, mes, 1);
-        if(ruts.size() == 0)
+        if(ruts.isEmpty())
             return "Error al generar la planilla";
         else{
             for (String rut : ruts) {

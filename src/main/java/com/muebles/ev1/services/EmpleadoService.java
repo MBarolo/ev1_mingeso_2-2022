@@ -19,26 +19,20 @@ public class EmpleadoService {
     }
     public ArrayList<String> getRuts(){return empleadoRepository.getRuts();}
     public int calculateSFM(String cat){
-        switch (cat){
-            case "a":
-                return 1700000;
-            case "b":
-                return 1200000;
-            case "c":
-                return 800000;
-        }
-        return 0;
+        return switch (cat) {
+            case "a" -> 1700000;
+            case "b" -> 1200000;
+            case "c" -> 800000;
+            default -> 0;
+        };
     }
     public int getValueOvertime(String cat){
-        switch(cat){
-            case "a":
-                return 25000;
-            case "b":
-                return 20000;
-            case "c":
-                return 10000;
-        }
-        return 0;
+        return switch (cat) {
+            case "a" -> 25000;
+            case "b" -> 20000;
+            case "c" -> 10000;
+            default -> 0;
+        };
     }
     public Optional<Empleados> findById(Long id){
         return empleadoRepository.findById(id);

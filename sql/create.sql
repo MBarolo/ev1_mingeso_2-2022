@@ -12,7 +12,7 @@ create table empleados(
 create table marcas(
 	id bigint not null unique auto_increment,
 	fecha date not null,
-	hora time  not null
+	hora time,
 	rut_empleado varchar(12) not null,
 	justificativo boolean,
 	autorizacion boolean,

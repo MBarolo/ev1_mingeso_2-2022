@@ -73,7 +73,7 @@ public class MarcaController {
                 while(scan.hasNextLine()){
                     x = scan.nextLine();
                     args = x.split(";");
-                    args[0] = args[0].replaceAll("/", "-");
+                    args[0] = args[0].replace("/", "-");
                     m.setFecha(LocalDate.parse(args[0]));
                     m.setHora(LocalTime.parse(args[1]));
                     m.setRut_empleado(args[2]);
