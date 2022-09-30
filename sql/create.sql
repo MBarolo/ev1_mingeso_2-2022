@@ -1,3 +1,4 @@
+create database [IF NOT EXISTS] db
 create table empleados(
 	id bigint not null unique auto_increment,
 	rut varchar(12) not null unique,
@@ -12,7 +13,7 @@ create table empleados(
 create table marcas(
 	id bigint not null unique auto_increment,
 	fecha date not null,
-	hora time,
+	hora time not null,
 	rut_empleado varchar(12) not null,
 	justificativo boolean,
 	autorizacion boolean,
