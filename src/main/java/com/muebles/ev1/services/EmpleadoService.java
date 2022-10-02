@@ -14,6 +14,16 @@ import static java.lang.Math.max;
 public class EmpleadoService {
     @Autowired
     EmpleadoRepository empleadoRepository;
+    public void insertEmpleado(Empleados empleado){
+        empleadoRepository.insertEmpleado(
+                empleado.getRut(),
+                empleado.getApellidos(),
+                empleado.getNombres(),
+                empleado.getCategoria(),
+                empleado.getFecha_ingreso(),
+                empleado.getFecha_nac()
+                );
+    }
     public Empleados findByRut(String rut){
         return empleadoRepository.findByRut(rut);
     }
