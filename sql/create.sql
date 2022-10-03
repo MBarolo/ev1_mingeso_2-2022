@@ -1,4 +1,3 @@
-create database [IF NOT EXISTS] db
 create table empleados(
 	id bigint not null unique auto_increment,
 	rut varchar(12) not null unique,
