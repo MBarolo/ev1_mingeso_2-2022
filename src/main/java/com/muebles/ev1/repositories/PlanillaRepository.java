@@ -22,6 +22,6 @@ public interface PlanillaRepository extends CrudRepository<Planillas, Long> {
                                @Param("cot_prev") int cot_prev, @Param("cot_sal") int cot_sal);
     @Modifying
     @Transactional
-    @Query(value = "DELETE * FROM planillas")
+    @Query(value = "DELETE FROM planillas",nativeQuery = true)
     public void deleteAllPlanillas();
 }
