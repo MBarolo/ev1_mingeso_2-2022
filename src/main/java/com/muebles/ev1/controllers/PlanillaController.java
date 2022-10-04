@@ -18,7 +18,7 @@ public class PlanillaController {
     PlanillaService planillaService;
     @PostMapping("/planillas/generate")
     public ModelAndView generarPlanilla(@RequestParam("mes") int mes, @RequestParam ("anyo") int anyo, Model model){
-        planillaService.delete();
+        planillaService.deleteAll();
         planillaService.generate(mes, anyo);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("view");
