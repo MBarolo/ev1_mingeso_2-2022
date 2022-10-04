@@ -45,7 +45,7 @@ public class PlanillaService {
         }
         return 0;
     }
-    public void delete(){planillaRepository.deleteAll();}
+    public void delete(){planillaRepository.deleteAllPlanillas();}
     public ArrayList<Integer> getAtrasosAndInasist(int mes, int anyo, String rut){
         ArrayList<Integer> atrasosInasist = new ArrayList<>();
         atrasosInasist.add(0);

@@ -20,4 +20,8 @@ public interface PlanillaRepository extends CrudRepository<Planillas, Long> {
                                @Param("monto_anyos") int monto_anyos, @Param("monto_horas") int monto_horas,
                                @Param("monto_desc") int monto_desc, @Param("monto_final") int monto_final,
                                @Param("cot_prev") int cot_prev, @Param("cot_sal") int cot_sal);
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE * FROM planillas")
+    public void deleteAllPlanillas();
 }
